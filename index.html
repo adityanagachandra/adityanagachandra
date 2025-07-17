@@ -1,199 +1,3 @@
-Skip to content
-You said:
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Aditya Nagachandra</title>
-    <link rel="stylesheet" href="styles.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
-</head>
-<body>
-    <div class="container">
-        <!-- Hero Section -->
-        <header class="hero">
-            <h1 class="name">Aditya Nagachandra</h1>
-            <p class="tagline">👋 Welcome to my digital space</p>
-        </header>
-
-        <!-- Main Content -->
-        <main class="content">
-            <!-- Contact Section -->
-            <section class="section contact">
-                <h2>Get in Touch</h2>
-                <div class="contact-info">
-                    <a href="mailto:nagaca1@ucla.edu" class="email">nagaca1@ucla.edu</a>
-                </div>
-            </section>
-
-            <!-- About Section - Ready for your content -->
-            <section class="section about" id="about">
-                <h2>About</h2>
-                <div class="content-placeholder">
-                    <p class="placeholder-text">Add your story here...</p>
-                </div>
-            </section>
-
-            <!-- Experience Section - Ready for your content -->
-            <section class="section experience" id="experience">
-                <h2>Experience</h2>
-                <div class="content-placeholder">
-                    <p class="placeholder-text">Add your experience here...</p>
-                </div>
-            </section>
-
-            <!-- Projects Section - Ready for your content -->
-            <section class="section projects" id="projects">
-                <h2>Projects</h2>
-                <div class="content-placeholder">
-                    <p class="placeholder-text">Add your projects here...</p>
-                </div>
-            </section>
-
-            <!-- Skills Section - Ready for your content -->
-            <section class="section skills" id="skills">
-                <h2>Skills</h2>
-                <div class="content-placeholder">
-                    <p class="placeholder-text">Add your skills here...</p>
-                </div>
-            </section>
-        </main>
-
-        <!-- Footer -->
-        <footer class="footer">
-            <p>&copy; 2024 Aditya Nagachandra</p>
-        </footer>
-    </div>
-</body>
-</html> ; Make this more minialistic ; Use a roboto type font ; also, don't have so many subfields. Just have:
-
-*   My name
-*   A widget that links to my email
-*   My current position as a robotics research intern at Adverb Technologies and undergraduate researcher at Visual Machines Group at UCLA
-ChatGPT said:
-
-Thought for 31 seconds
-
-Answer in chat instead
-Done! I've created a stripped-down, Roboto-based, fully responsive single-page version with just:
-
-Your name
-
-A prominent email button
-
-Your two current roles (Addverb Technologies + Visual Machines Group @ UCLA)
-
-Minimal theming with light/dark auto support
-
-Let me know if you want any tweaks (e.g., show your UCLA email inline instead of a button, add icons, include GitHub/LinkedIn, change colors, adjust font weights, or swap in your nickname “Aadu”). Happy to iterate.
-
-
-
-No file chosenNo file chosen
-ChatGPT can make mistakes. Check important info.
-
-
-Minimal-aditya-site
-Selection deleted
-1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-19
-20
-21
-22
-23
-24
-25
-26
-27
-28
-29
-30
-31
-32
-33
-34
-35
-36
-37
-38
-39
-40
-41
-42
-43
-44
-45
-46
-47
-48
-49
-50
-51
-52
-53
-54
-55
-56
-57
-58
-59
-60
-61
-62
-63
-64
-65
-66
-67
-68
-69
-70
-71
-72
-73
-74
-75
-76
-77
-78
-79
-80
-81
-82
-83
-84
-85
-86
-87
-88
-89
-90
-91
-92
-93
-94
-95
-96
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -287,7 +91,75 @@ Selection deleted
     </ul>
     <footer>&copy; 2025 Aditya Nagachandra</footer>
   </main>
+  <script>
+    (function(){
+      const DEBUG_NS = '[aditya-site]';
+      function log(){
+        if(typeof console !== 'undefined' &amp;&amp; console.log){
+          console.log.apply(console, [DEBUG_NS].concat(Array.from(arguments)));
+        }
+      }
+      function attrDump(el){
+        if(!el) return null;
+        const attrs = [];
+        for(const a of el.attributes){
+          attrs.push({name:a.name, value:a.value});
+        }
+        return attrs;
+      }
+      function logElement(el, label){
+        if(!el){
+          log(label + ' NOT FOUND');
+          return;
+        }
+        log(label + ' found', {
+          text: el.textContent.trim(),
+          classes: Array.from(el.classList),
+          attrs: attrDump(el)
+        });
+      }
+
+      document.addEventListener('DOMContentLoaded', function(){
+        log('DOM fully loaded');
+        log('UserAgent', navigator.userAgent);
+        log('Viewport', {width: window.innerWidth, height: window.innerHeight, dpr: window.devicePixelRatio});
+        log('PrefersColorScheme', window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+        log('PrefersReducedMotion', window.matchMedia('(prefers-reduced-motion: reduce)').matches);
+
+        var nameEl = document.querySelector('.name');
+        logElement(nameEl, 'Name element');
+
+        var emailBtn = document.querySelector('.email-btn');
+        logElement(emailBtn, 'Email button');
+
+        var roleEls = document.querySelectorAll('.roles li');
+        log('Role elements count', roleEls.length, Array.from(roleEls, function(li){return li.textContent.trim();}));
+
+        if(emailBtn){
+          var cs = getComputedStyle(emailBtn);
+          log('Email button computed style', {
+            backgroundColor: cs.backgroundColor,
+            color: cs.color,
+            fontSize: cs.fontSize,
+            padding: cs.padding,
+            borderRadius: cs.borderRadius
+          });
+          emailBtn.addEventListener('click', function(){
+            log('Email button clicked', new Date().toISOString());
+          });
+          emailBtn.addEventListener('focus', function(){
+            log('Email button focused');
+          });
+          emailBtn.addEventListener('mouseover', function(){
+            log('Email button mouseover');
+          });
+        }
+      });
+
+      window.addEventListener('resize', function(){
+        log('Window resized', {width: window.innerWidth, height: window.innerHeight});
+      });
+    })();
+  </script>
 </body>
 </html>
-
-
