@@ -4,162 +4,261 @@
   <meta charset="utf-8">
   <title>Aditya Nagachandra</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
   <style>
+    /* Mac OS 8/9 Style Variables */
     :root {
-      --fg: #111;
-      --bg: #fff;
-      --accent: #0057ff;
-      --fg-muted: #555;
-      font-size: 16px;
+      --mac-bg: #c0c0c0;
+      --mac-fg: #000000;
+      --mac-border: #808080;
+      --mac-highlight: #ffffff;
+      --mac-shadow: #404040;
+      --mac-button-bg: #c0c0c0;
+      --mac-button-border: #808080;
+      --mac-button-shadow: #404040;
+      --mac-button-highlight: #ffffff;
     }
-    @media (prefers-color-scheme: dark) {
-      :root {
-        --fg: #f5f5f5;
-        --bg: #0b0b0b;
-        --accent: #7aa2ff;
-        --fg-muted: #999;
-      }
+    
+    /* Mac OS 8/9 Font Stack */
+    @font-face {
+      font-family: 'Chicago';
+      src: url('data:font/woff2;base64,') format('woff2');
+      font-display: swap;
     }
-    html, body {
+    
+    * {
       margin: 0;
       padding: 0;
-      background: var(--bg);
-      color: var(--fg);
-      font-family: "Roboto", system-ui, -apple-system, Segoe UI, Arial, sans-serif;
-      line-height: 1.4;
-      height: 100%;
+      box-sizing: border-box;
     }
+    
+    html, body {
+      height: 100%;
+      background: var(--mac-bg);
+      color: var(--mac-fg);
+      font-family: 'Chicago', 'Monaco', 'Menlo', 'Courier New', monospace;
+      font-size: 12px;
+      line-height: 1.2;
+      image-rendering: pixelated;
+      image-rendering: -moz-crisp-edges;
+      image-rendering: crisp-edges;
+    }
+    
     body {
       display: flex;
       justify-content: center;
       align-items: center;
-      text-align: center;
       min-height: 100vh;
+      padding: 20px;
     }
-    .profile {
-      padding: 2rem;
-      max-width: 600px;
+    
+    .window {
+      background: var(--mac-bg);
+      border: 2px outset var(--mac-border);
+      box-shadow: 2px 2px 4px var(--mac-shadow);
+      max-width: 500px;
       width: 100%;
+      position: relative;
     }
-    .profile h1 {
-      margin: 0 0 1rem;
-      font-weight: 600;
-      font-size: clamp(2rem, 5vw, 3rem);
+    
+    .titlebar {
+      background: linear-gradient(to bottom, #808080, #c0c0c0);
+      border-bottom: 1px solid var(--mac-border);
+      padding: 4px 8px;
+      font-weight: bold;
+      font-size: 11px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
     }
-    .email-btn {
+    
+    .titlebar-controls {
+      display: flex;
+      gap: 4px;
+    }
+    
+    .control-button {
+      width: 16px;
+      height: 14px;
+      border: 1px outset var(--mac-border);
+      background: var(--mac-bg);
+      font-size: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+    }
+    
+    .control-button:active {
+      border: 1px inset var(--mac-border);
+    }
+    
+    .content {
+      padding: 20px;
+      text-align: center;
+    }
+    
+    .name {
+      font-size: 18px;
+      font-weight: bold;
+      margin-bottom: 16px;
+      text-shadow: 1px 1px 0 var(--mac-highlight);
+    }
+    
+    .contact-section {
+      margin: 20px 0;
+    }
+    
+    .mac-button {
       display: inline-block;
-      margin-top: 0.75rem;
-      padding: 0.75rem 1.5rem;
-      font-size: 1rem;
-      font-weight: 500;
+      background: var(--mac-button-bg);
+      border: 2px outset var(--mac-button-border);
+      padding: 6px 12px;
+      margin: 4px;
       text-decoration: none;
-      color: var(--bg);
-      background: var(--accent);
-      border-radius: 999px;
-      transition: opacity .15s ease-in-out, transform .15s ease-in-out;
+      color: var(--mac-fg);
+      font-size: 11px;
+      font-weight: bold;
+      cursor: pointer;
+      box-shadow: 1px 1px 2px var(--mac-button-shadow);
     }
-    .email-btn:hover,
-    .email-btn:focus-visible {
-      opacity: .9;
-      transform: translateY(-1px);
+    
+    .mac-button:hover {
+      background: #d0d0d0;
     }
+    
+    .mac-button:active {
+      border: 2px inset var(--mac-button-border);
+      box-shadow: inset 1px 1px 2px var(--mac-button-shadow);
+    }
+    
     .roles {
-      margin: 1.5rem 0 0;
-      padding: 0;
-      list-style: none;
-      font-size: 1.125rem;
-      font-weight: 300;
-      line-height: 1.6;
+      margin: 20px 0;
+      text-align: left;
     }
-    footer {
-      margin-top: 2.5rem;
-      font-size: .875rem;
-      color: var(--fg-muted);
+    
+    .roles h3 {
+      font-size: 12px;
+      font-weight: bold;
+      margin-bottom: 8px;
+      text-decoration: underline;
+    }
+    
+    .roles ul {
+      list-style: none;
+      padding-left: 0;
+    }
+    
+    .roles li {
+      font-size: 11px;
+      margin-bottom: 4px;
+      padding-left: 12px;
+      position: relative;
+    }
+    
+    .roles li:before {
+      content: "•";
+      position: absolute;
+      left: 0;
+      color: var(--mac-fg);
+    }
+    
+    .social-icons {
+      margin-top: 20px;
+      display: flex;
+      justify-content: center;
+      gap: 8px;
+    }
+    
+    .icon-button {
+      width: 32px;
+      height: 32px;
+      background: var(--mac-button-bg);
+      border: 2px outset var(--mac-button-border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+      color: var(--mac-fg);
+      font-size: 16px;
+      cursor: pointer;
+      box-shadow: 1px 1px 2px var(--mac-button-shadow);
+    }
+    
+    .icon-button:hover {
+      background: #d0d0d0;
+    }
+    
+    .icon-button:active {
+      border: 2px inset var(--mac-button-border);
+      box-shadow: inset 1px 1px 2px var(--mac-button-shadow);
+    }
+    
+    .footer {
+      margin-top: 20px;
+      font-size: 10px;
+      color: var(--mac-fg);
+      opacity: 0.7;
+    }
+    
+    /* Mac OS 8/9 scrollbar styling */
+    ::-webkit-scrollbar {
+      width: 16px;
+    }
+    
+    ::-webkit-scrollbar-track {
+      background: var(--mac-bg);
+      border: 1px inset var(--mac-border);
+    }
+    
+    ::-webkit-scrollbar-thumb {
+      background: var(--mac-button-bg);
+      border: 1px outset var(--mac-border);
+    }
+    
+    ::-webkit-scrollbar-thumb:hover {
+      background: #d0d0d0;
     }
   </style>
 </head>
 <body>
-  <main class="profile" role="main">
-    <h1 class="name">Aditya Nagachandra</h1>
-    <a class="email-btn" href="mailto:nagaca1@ucla.edu" aria-label="Send email to Aditya">email</a>
-    <ul class="roles" aria-label="Current Positions">
-      <li>Robotics Research Intern, Addverb Technologies</li>
-      <li>Undergraduate Researcher, Visual Machines Group @ UCLA</li>
-    </ul>
-    <footer>...</footer>
-  </main>
-  <script>
-    (function(){
-      const DEBUG_NS = '[aditya-site]';
-      function log(){
-        if(typeof console !== 'undefined' &amp;&amp; console.log){
-          console.log.apply(console, [DEBUG_NS].concat(Array.from(arguments)));
-        }
-      }
-      function attrDump(el){
-        if(!el) return null;
-        const attrs = [];
-        for(const a of el.attributes){
-          attrs.push({name:a.name, value:a.value});
-        }
-        return attrs;
-      }
-      function logElement(el, label){
-        if(!el){
-          log(label + ' NOT FOUND');
-          return;
-        }
-        log(label + ' found', {
-          text: el.textContent.trim(),
-          classes: Array.from(el.classList),
-          attrs: attrDump(el)
-        });
-      }
-
-      document.addEventListener('DOMContentLoaded', function(){
-        log('DOM fully loaded');
-        log('UserAgent', navigator.userAgent);
-        log('Viewport', {width: window.innerWidth, height: window.innerHeight, dpr: window.devicePixelRatio});
-        log('PrefersColorScheme', window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
-        log('PrefersReducedMotion', window.matchMedia('(prefers-reduced-motion: reduce)').matches);
-
-        var nameEl = document.querySelector('.name');
-        logElement(nameEl, 'Name element');
-
-        var emailBtn = document.querySelector('.email-btn');
-        logElement(emailBtn, 'Email button');
-
-        var roleEls = document.querySelectorAll('.roles li');
-        log('Role elements count', roleEls.length, Array.from(roleEls, function(li){return li.textContent.trim();}));
-
-        if(emailBtn){
-          var cs = getComputedStyle(emailBtn);
-          log('Email button computed style', {
-            backgroundColor: cs.backgroundColor,
-            color: cs.color,
-            fontSize: cs.fontSize,
-            padding: cs.padding,
-            borderRadius: cs.borderRadius
-          });
-          emailBtn.addEventListener('click', function(){
-            log('Email button clicked', new Date().toISOString());
-          });
-          emailBtn.addEventListener('focus', function(){
-            log('Email button focused');
-          });
-          emailBtn.addEventListener('mouseover', function(){
-            log('Email button mouseover');
-          });
-        }
-      });
-
-      window.addEventListener('resize', function(){
-        log('Window resized', {width: window.innerWidth, height: window.innerHeight});
-      });
-    })();
-  </script>
+  <div class="window">
+    <div class="titlebar">
+      <span>Aditya Nagachandra</span>
+      <div class="titlebar-controls">
+        <div class="control-button">−</div>
+        <div class="control-button">□</div>
+        <div class="control-button">×</div>
+      </div>
+    </div>
+    
+    <div class="content">
+      <h1 class="name">Aditya Nagachandra</h1>
+      
+      <div class="contact-section">
+        <a class="mac-button" href="mailto:nagaca1@ucla.edu">📧 Email</a>
+      </div>
+      
+      <div class="roles">
+        <h3>Current Positions</h3>
+        <ul>
+          <li>Robotics Research Intern, Addverb Technologies</li>
+          <li>Undergraduate Researcher, Visual Machines Group @ UCLA</li>
+        </ul>
+      </div>
+      
+      <div class="social-icons">
+        <a class="icon-button" href="https://scholar.google.com/citations?hl=en&view_op=list_works&gmla=AH8HC4ylkzbZlZ6bC_-hsASblugx-e1OJlNLDmEMxNRoMzHYSy64P2wz-bJv8-vSkp1WgOZFH_mVJ_9klwrAMQ&user=f_oF4RIAAAAJ" target="_blank" title="Google Scholar">
+          📚
+        </a>
+        <a class="icon-button" href="https://linkedin.com/in/aditya-nagachandra" target="_blank" title="LinkedIn">
+          💼
+        </a>
+      </div>
+      
+      <div class="footer">
+        <p>© 2024 Aditya Nagachandra</p>
+      </div>
+    </div>
+  </div>
 </body>
 </html>
