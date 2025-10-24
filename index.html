@@ -5,17 +5,14 @@
   <title>Aditya Nagachandra</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <style>
-    /* Mac OS 8/9 Style Variables */
+    /* Clean Black and White Schematic Variables */
     :root {
-      --mac-bg: #c0c0c0;
-      --mac-fg: #000000;
-      --mac-border: #808080;
-      --mac-highlight: #ffffff;
-      --mac-shadow: #404040;
-      --mac-button-bg: #c0c0c0;
-      --mac-button-border: #808080;
-      --mac-button-shadow: #404040;
-      --mac-button-highlight: #ffffff;
+      --bg: #ffffff;
+      --fg: #000000;
+      --border: #000000;
+      --button-bg: #ffffff;
+      --button-border: #000000;
+      --button-hover: #f0f0f0;
     }
     
     /* Mac OS 8/9 Font Stack */
@@ -33,8 +30,8 @@
     
     html, body {
       height: 100%;
-      background: var(--mac-bg);
-      color: var(--mac-fg);
+      background: var(--bg);
+      color: var(--fg);
       font-family: 'Chicago', 'Monaco', 'Menlo', 'Courier New', monospace;
       font-size: 12px;
       line-height: 1.2;
@@ -52,17 +49,16 @@
     }
     
     .window {
-      background: var(--mac-bg);
-      border: 2px outset var(--mac-border);
-      box-shadow: 2px 2px 4px var(--mac-shadow);
+      background: var(--bg);
+      border: 2px solid var(--border);
       max-width: 500px;
       width: 100%;
       position: relative;
     }
     
     .titlebar {
-      background: linear-gradient(to bottom, #808080, #c0c0c0);
-      border-bottom: 1px solid var(--mac-border);
+      background: var(--bg);
+      border-bottom: 1px solid var(--border);
       padding: 4px 8px;
       font-weight: bold;
       font-size: 11px;
@@ -79,8 +75,8 @@
     .control-button {
       width: 16px;
       height: 14px;
-      border: 1px outset var(--mac-border);
-      background: var(--mac-bg);
+      border: 1px solid var(--border);
+      background: var(--button-bg);
       font-size: 8px;
       display: flex;
       align-items: center;
@@ -89,7 +85,7 @@
     }
     
     .control-button:active {
-      border: 1px inset var(--mac-border);
+      background: var(--button-hover);
     }
     
     .content {
@@ -101,7 +97,6 @@
       font-size: 18px;
       font-weight: bold;
       margin-bottom: 16px;
-      text-shadow: 1px 1px 0 var(--mac-highlight);
     }
     
     .contact-section {
@@ -110,25 +105,23 @@
     
     .mac-button {
       display: inline-block;
-      background: var(--mac-button-bg);
-      border: 2px outset var(--mac-button-border);
+      background: var(--button-bg);
+      border: 2px solid var(--button-border);
       padding: 6px 12px;
       margin: 4px;
       text-decoration: none;
-      color: var(--mac-fg);
+      color: var(--fg);
       font-size: 11px;
       font-weight: bold;
       cursor: pointer;
-      box-shadow: 1px 1px 2px var(--mac-button-shadow);
     }
     
     .mac-button:hover {
-      background: #d0d0d0;
+      background: var(--button-hover);
     }
     
     .mac-button:active {
-      border: 2px inset var(--mac-button-border);
-      box-shadow: inset 1px 1px 2px var(--mac-button-shadow);
+      background: var(--button-hover);
     }
     
     .roles {
@@ -172,51 +165,49 @@
     .icon-button {
       width: 32px;
       height: 32px;
-      background: var(--mac-button-bg);
-      border: 2px outset var(--mac-button-border);
+      background: var(--button-bg);
+      border: 2px solid var(--button-border);
       display: flex;
       align-items: center;
       justify-content: center;
       text-decoration: none;
-      color: var(--mac-fg);
+      color: var(--fg);
       font-size: 16px;
       cursor: pointer;
-      box-shadow: 1px 1px 2px var(--mac-button-shadow);
     }
     
     .icon-button:hover {
-      background: #d0d0d0;
+      background: var(--button-hover);
     }
     
     .icon-button:active {
-      border: 2px inset var(--mac-button-border);
-      box-shadow: inset 1px 1px 2px var(--mac-button-shadow);
+      background: var(--button-hover);
     }
     
     .footer {
       margin-top: 20px;
       font-size: 10px;
-      color: var(--mac-fg);
+      color: var(--fg);
       opacity: 0.7;
     }
     
-    /* Mac OS 8/9 scrollbar styling */
+    /* Clean scrollbar styling */
     ::-webkit-scrollbar {
       width: 16px;
     }
     
     ::-webkit-scrollbar-track {
-      background: var(--mac-bg);
-      border: 1px inset var(--mac-border);
+      background: var(--bg);
+      border: 1px solid var(--border);
     }
     
     ::-webkit-scrollbar-thumb {
-      background: var(--mac-button-bg);
-      border: 1px outset var(--mac-border);
+      background: var(--button-bg);
+      border: 1px solid var(--border);
     }
     
     ::-webkit-scrollbar-thumb:hover {
-      background: #d0d0d0;
+      background: var(--button-hover);
     }
   </style>
 </head>
