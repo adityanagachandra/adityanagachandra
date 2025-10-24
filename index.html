@@ -191,6 +191,21 @@
       opacity: 0.7;
     }
     
+    .footer-fields {
+      display: flex;
+      justify-content: center;
+      gap: 16px;
+      margin-bottom: 8px;
+      flex-wrap: wrap;
+    }
+    
+    .footer-fields span {
+      font-size: 9px;
+      font-weight: bold;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    
     /* Clean scrollbar styling */
     ::-webkit-scrollbar {
       width: 16px;
@@ -214,7 +229,7 @@
 <body>
   <div class="window">
     <div class="titlebar">
-      <span>Aditya Nagachandra</span>
+      <span></span>
       <div class="titlebar-controls">
         <div class="control-button">−</div>
         <div class="control-button">□</div>
@@ -229,13 +244,6 @@
         <a class="mac-button" href="mailto:nagaca1@ucla.edu">Email</a>
       </div>
       
-      <div class="roles">
-        <h3>Current Positions</h3>
-        <ul>
-          <li>Undergraduate Researcher, Visual Machines Group @ UCLA</li>
-        </ul>
-      </div>
-      
       <div class="social-icons">
         <a class="icon-button" href="https://scholar.google.com/citations?hl=en&view_op=list_works&gmla=AH8HC4ylkzbZlZ6bC_-hsASblugx-e1OJlNLDmEMxNRoMzHYSy64P2wz-bJv8-vSkp1WgOZFH_mVJ_9klwrAMQ&user=f_oF4RIAAAAJ" target="_blank" title="Google Scholar">
           GS
@@ -246,6 +254,13 @@
       </div>
       
       <div class="footer">
+        <div class="footer-fields">
+          <span>robot</span>
+          <span>Mechanical</span>
+          <span>software</span>
+          <span>visual</span>
+          <span>system integration</span>
+        </div>
         <p>© 2025 Aditya Nagachandra</p>
       </div>
     </div>
